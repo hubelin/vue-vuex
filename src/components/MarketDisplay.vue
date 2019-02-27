@@ -1,8 +1,8 @@
 <template>
   <div class="market-display">
-    <h3>MarketID: {{ marketId[0] }}</h3>
-    <h3>Location: {{ location[0] }}</h3>
-    <h3>Cards: {{ cards[0] }}</h3>
+    <h3>MarketID: {{ marketId }}</h3>
+    <h3>Location: {{ location }}</h3>
+    <h3>Cards: {{ cards }}</h3>
     <h3>% of total</h3>
     <button @click="incrementCard">Add Card</button>
     <button>Delete Card</button>
@@ -13,7 +13,7 @@
 import { mapState } from 'vuex'
 export default {
   name: 'MarketDisplay',
-  computed: mapState(['marketId', 'location', 'cards']),
+  props: ['marketId', 'location', 'cards'],
   methods: {
     incrementCard() {
       this.$store.commit('INCREMENT_CARD')

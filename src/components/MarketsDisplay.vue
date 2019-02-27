@@ -1,17 +1,21 @@
 <template>
   <div class="markets-display">
-    <MarketDisplay></MarketDisplay>
+    <div v-for="market in markets">
+      <MarketDisplay :location="market.location" :marketId="market.marketId" :cards="market.cards"></MarketDisplay>
+    </div>
   </div>
 </template>
 
 <script>
-import MarketDisplay from "./MarketDisplay";
+import MarketDisplay from './MarketDisplay'
+import { mapState } from 'vuex'
 export default {
-  name: "MarketsDisplay",
+  name: 'MarketsDisplay',
   components: {
     MarketDisplay
-  }
-};
+  },
+  computed: mapState(['markets'])
+}
 </script>
 
 <style>
